@@ -34,8 +34,8 @@ const servicesList = [
 export default function ServicesList() {
   const { language, t, switchLanguage } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
-  const { data, isLoading, error, refetch } = useQuery(["services-list"], () =>(
-    getServicesWithFilters({ name: searchTerm, tags: [] }))
+  const { data, isLoading, error, refetch } = useQuery(["services-list"], () =>
+    getServicesWithFilters({ name: searchTerm, tags: [] })
   );
 
   useEffect(() => {
@@ -66,12 +66,14 @@ export default function ServicesList() {
       <Flex m="40px 32px" alignItems="center" flexDirection="column">
         <Input placeholder="Buscar" maxW="600px" onChange={debouncedResults} />
         {isLoading ? (
-          <Center marginTop={'20px'}>
-            <Spinner thickness='4px'
-            speed='0.65s'
-            emptyColor='gray.200'
-            color='blue.500'
-            size='xl'/>
+          <Center marginTop={"20px"}>
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
           </Center>
         ) : (
           <Flex wrap={"wrap"}>

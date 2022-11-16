@@ -61,6 +61,13 @@ const EnglishDictionary = {
     alreadyUser_2: "Login",
   },
   navBar: {
+    home: "Home",
+    profile: "Profile",
+    myProfile: "My Profile",
+    updateProfile: "Update Profile",
+    service: "Service",
+    allServices: "All services",
+    serviceRequest: "Service Request",
     loginButton: "Login",
     logoutButton: "Logout",
   },
@@ -73,21 +80,19 @@ const EnglishDictionary = {
     password: "Password",
     legalDocumentId: "Legal Document",
     updateButton: "Update",
-    
   },
   languagesModal: {
     title: "Select your language",
     close: "Close",
   },
-  orderModal:{
+  orderModal: {
     title: "Make your order",
     close: "Close",
     submitButton: "Order",
     direction: "Direction",
     requiredDate: "Date and time",
     description: "Description",
-  }
-  
+  },
 };
 
 export default EnglishDictionary;

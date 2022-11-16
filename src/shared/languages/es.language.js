@@ -61,6 +61,13 @@ const SpanishDictionary = {
     alreadyUser_2: "Iniciar sesión",
   },
   navBar: {
+    home: "Inicio",
+    profile: "Perfil",
+    myProfile: "Mi Perfil",
+    updateProfile: "Actualizar perfil",
+    service: "Servicio",
+    allServices: "Todos los servicios",
+    serviceRequest: "Solicitar servicio",
     loginButton: "Iniciar sesión",
     logoutButton: "Cerrar sesión",
   },
@@ -75,19 +82,18 @@ const SpanishDictionary = {
     password: "Contraseña",
     updateButton: "Actualizar",
   },
-  languagesModal:{
+  languagesModal: {
     title: "Selecciona un idioma",
     close: "Cerrar",
   },
-  orderModal:{
+  orderModal: {
     title: "Solicitar un servicio",
     close: "Cerrar",
     submitButton: "Realizar solicitar",
     direction: "Dirección",
     requiredDate: "Fecha y hora",
     description: "Descripción",
-  }
-
+  },
 };
 
 export default SpanishDictionary;

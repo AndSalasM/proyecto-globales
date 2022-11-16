@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -7,7 +7,7 @@ import { FormControl } from "../../src/shared/components";
 import { Waves } from "../../src/shared/components/Backgrounds";
 import { signIn as signInApi } from "@src/shared/api/auth";
 import { useUpdateUser, useHasHydrated } from "@src/shared/hooks";
-import { withoutAuth } from '@src/shared/components';
+import { withoutAuth } from "@src/shared/components";
 
 import {
   Flex,
@@ -27,25 +27,26 @@ import {
 } from "@chakra-ui/react";
 
 import { useTranslation } from "../../src/shared/hooks";
+import { Login } from "@mui/icons-material";
 
 const InpustData = [
   {
-    key: 'email',
-    name: 'email',
-    type: 'email',
-    herlperText: 'esto es una ayudita',
+    key: "email",
+    name: "email",
+    type: "email",
+    herlperText: "esto es una ayudita",
   },
   {
-    key: 'password',
-    name: 'password',
-    type: 'password',
-    herlperText: 'esto es una ayudita',
+    key: "password",
+    name: "password",
+    type: "password",
+    herlperText: "esto es una ayudita",
   },
 ];
 
 const SignIn = () => {
   const { language, t } = useTranslation();
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const { user, signIn } = useUpdateUser();
@@ -56,22 +57,20 @@ const SignIn = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email().required(t('global.error.required')),
-    password: Yup.string().required(t('global.error.required')),
+    email: Yup.string().email().required(t("global.error.required")),
+    password: Yup.string().required(t("global.error.required")),
   });
 
-  const onSubmit = async() => {
-    try{
+  const onSubmit = async () => {
+    try {
       setIsLoading(true);
       const response = await signInApi(values);
       await signIn(response.data);
-      console.log('response', response);
-    }
-    catch(error){
-      console.log('error', error);
+      console.log("response", response);
+    } catch (error) {
+      console.log("error", error);
     }
     setIsLoading(false);
-
   };
 
   const formikProps = useFormik({
@@ -99,11 +98,19 @@ const SignIn = () => {
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Waves/>
-      
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} zIndex={2} width='400px'>
+      <Waves />
+
+      <Stack
+        spacing={8}
+        mx={"auto"}
+        maxW={"lg"}
+        py={12}
+        px={6}
+        zIndex={2}
+        width="400px"
+      >
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>{t('login.title')}</Heading>
+          <Heading fontSize={"4xl"}>{t("login.title")}</Heading>
         </Stack>
         <Box
           rounded={"lg"}
@@ -123,16 +130,17 @@ const SignIn = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 type={input.type}
-              />)
-            )}
+              />
+            ))}
             <Stack spacing={10}>
               <Stack
                 direction={{ base: "column", sm: "column" }}
                 align={"start"}
                 justify={"space-between"}
               >
-                
-                <Link color={"blue.400"}>{t('login.forgotPassword')}</Link>
+                <Link color={"blue.400"}>{t("login.forgotPassword")}</Link>
+
+                <Link href="/sign-up">{t("login.signUp")}</Link>
               </Stack>
               <Button
                 bg={"blue.400"}
@@ -143,7 +151,7 @@ const SignIn = () => {
                 isLoading={isLoading}
                 onClick={handleSubmit}
               >
-                {t('login.submitButton')}
+                {t("login.submitButton")}
               </Button>
             </Stack>
           </Stack>

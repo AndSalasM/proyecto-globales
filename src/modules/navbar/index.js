@@ -23,12 +23,11 @@ import LanguagesModal from "./components/LanguagesModal";
 
 function NavbarComponent() {
   const { isOpen, onToggle } = useDisclosure();
-  const { isOpen : isOpenModal, onOpen, onClose } = useDisclosure()
+  const { isOpen: isOpenModal, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
   const { language, t, switchLanguage } = useTranslation();
   const { user, signOut } = useUpdateUser();
-
 
   return (
     <Box>
